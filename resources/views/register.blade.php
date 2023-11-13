@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <style>
-        body{
+        body {
             background: url('https://wallpapers.com/images/high/zigzag-river-aesthetic-landscape-zrf9jzxpxx736bd0.webp');
             background-size: cover;
             background-position: center;
         }
-        .center-container{
+
+        .center-container {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
-        .register-box{
+
+        .register-box {
             background: rgba(255, 255, 255, 0.8);
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -26,6 +29,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container center-container">
         <div class="col-md-6 register-box">
@@ -37,6 +41,13 @@
                 {{session('message')}}
             </div>
             @endif
+            @if (session('error'))
+            <div class="alert alert-danger">
+                <b>Oops!</b>{{session('error')}}
+            </div>
+            @endif
+
+
 
             <form action="{{route('actionRegister') }}" method="post">
                 @csrf
@@ -64,4 +75,5 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdlivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
